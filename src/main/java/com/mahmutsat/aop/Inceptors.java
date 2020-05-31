@@ -4,8 +4,6 @@ import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 
-import java.sql.SQLOutput;
-
 @Aspect
 public class Inceptors {
     @Before("execution(* com.mahmutsat.model.Staff.greeting(..))")
