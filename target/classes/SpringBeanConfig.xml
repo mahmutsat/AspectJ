@@ -14,6 +14,14 @@
         <property name="name" value="Mahmut"/>
     </bean>
 
-    <bean class="com.mahmutsat.aop.Inceptors"/>
+    <bean id="inceptors" class="com.mahmutsat.aop.Inceptors"/>
+
+<!--    <aop:config>-->
+<!--        <aop:aspect id="aspects" ref="inceptors">-->
+<!--            <aop:pointcut id="pointCutBefore" expression="execution(* com.mahmutsat.model.Staff.greeting(..))"/>-->
+<!--            <aop:before method="before" pointcut-ref="pointCutBefore"/>-->
+<!--            <aop:around method="around" pointcut-ref="pointCutBefore"/>-->
+<!--        </aop:aspect>-->
+<!--    </aop:config>-->
 
 </beans>
