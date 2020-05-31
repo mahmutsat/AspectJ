@@ -1,10 +1,10 @@
 package com.mahmutsat.aop;
 
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.annotation.After;
-import org.aspectj.lang.annotation.Around;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.*;
+
+import java.sql.SQLOutput;
 
 @Aspect
 public class Inceptors {
@@ -18,8 +18,15 @@ public class Inceptors {
         System.out.println("*----- After -----* : " + joinPoint.getSignature().getName());
     }
 
-//    @Around("execution(* com.mahmutsat.model.Staff.greeting(..))")
-//    public void around(JoinPoint joinPoint){
-//        System.out.println("*----- Around -----* : " + joinPoint.getSignature().getName());
-//    }
+    @AfterReturning("execution(* com.mahmutsat.model.Staff.greeting(..))")
+    public void afterReturning(JoinPoint joinPoint){
+        System.out.println("*----- After Returning -----* : " + joinPoint.getSignature().getName());
+    }
+
+    @Around("execution(* com.mahmutsat.model.Staff.greeting(..))")
+    public void around(ProceedingJoinPoint joinPoint) throws Throwable {
+        System.out.println("*----- Around (Before) -----* ");
+        joinPoint.proceed();
+        System.out.println("*----- Around (After) -----* ");
+    }
 }

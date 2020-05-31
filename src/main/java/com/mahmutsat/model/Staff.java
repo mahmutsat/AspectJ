@@ -3,8 +3,9 @@ package com.mahmutsat.model;
 public class Staff {
     private String name;
 
-    public void greeting(String message){
+    public String greeting(String message){
         System.out.println("Greeting : " + message);
+        return message;
     }
 
     public String getName() {
